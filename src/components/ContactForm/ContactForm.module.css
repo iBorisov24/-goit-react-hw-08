@@ -1,0 +1,17 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-width: 250px;
+	margin-bottom: 25px;
+}
+.btn {
+	width: 100px;
+	padding: 10px 5px;
+	background-color: aqua;
+	border-radius: 5px;
+}
+.input {
+	border-radius: 5px;
+	padding: 8px;
+}
