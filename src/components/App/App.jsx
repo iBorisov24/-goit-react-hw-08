@@ -56,7 +56,7 @@ export default function App() {
 							element={
 								<RestrictedRoute
 									component={<RegisterPage />}
-									redirectTo={'/tasks'}
+									redirectTo={'/contacts'}
 								/>
 							}
 						/>
