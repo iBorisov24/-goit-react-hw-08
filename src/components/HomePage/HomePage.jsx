@@ -1,4 +1,4 @@
-import { selectIsLoggin, selectUser } from '../../redux/Auth/selectors';
+import { selectIsLoggin, selectUser } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 

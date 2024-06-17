@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectIsLoggin } from '../redux/Auth/selectors';
+import { selectIsLoggin } from '../redux/auth/selectors';
 import { Navigate } from 'react-router-dom';
 
 export default function PrivateRoute({ Component, redirectTo }) {

@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/Auth/operations';
+import { login } from '../../redux/auth/operations';
 export default function LoginMenu() {
 	const dispatch = useDispatch();
 	const onSubmit = values => {
