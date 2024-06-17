@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/Contacts/contactsOps';
+import { deleteContact } from '../../redux/Contacts/operations.js';
 import toast from 'react-hot-toast';
 export default function DeleteContactMenu({ id, setIsOpen }) {
 	const dispatch = useDispatch();

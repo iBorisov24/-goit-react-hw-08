@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/Auth/AuthOps';
+import { register } from '../../redux/Auth/operations';
 import * as Yup from 'yup';
 import { ErrorMessage } from 'formik';
 export default function RegistrationMenu() {
