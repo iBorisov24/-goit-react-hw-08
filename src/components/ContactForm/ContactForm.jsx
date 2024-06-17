@@ -3,7 +3,7 @@ import { ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice.js/operations';
+import { addContact } from '../../redux/contacts/operations';
 import toast from 'react-hot-toast';
 
 export default function ContactForm() {
