@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 
 import Loader from '../Loader/Loader';
 
-import { refreshUser } from '../../redux/auth/Ysafaf.js';
+import { refreshUser } from '../../redux/auth/operations.js';
 import { selectIsRefresh } from '../../redux/auth/selectors.js';
 import PrivateRoute from '../PrivateRoute';
 import RestrictedRoute from '../RestrictedRoute';
