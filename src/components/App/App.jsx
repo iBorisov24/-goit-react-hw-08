@@ -3,19 +3,16 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import ContactForm from '../ContactForm/ContactForm';
-import ContactList from '../ContactList/ContactList';
-import SearchBox from '../SearchBox/SearchBox';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Loader from '../Loader/Loader';
-import AuthNav from '../AuthNav/AuthNav';
 
 import { selectLoading, selectError } from '../../redux/Contacts/selectors';
-import { fetchContacts } from '../../redux/Contacts/contactsOps';
 import { refreshUser } from '../../redux/Auth/AuthOps';
 import { selectIsRefresh } from '../../redux/Auth/selectors';
 import PrivateRoute from '../PrivateRoute';
 import RestrictedRoute from '../RestrictedRoute';
+import Layout from '../Layout/Layout.jsx';
+import { Toaster } from 'react-hot-toast';
 
 const ContactsPage = lazy(() =>
 	import('../../Pages/ContactsPage/ContactsPage')
@@ -29,51 +26,48 @@ const HomePage = lazy(() => import('../../Pages/HomePage/HomePage'));
 
 export default function App() {
 	const dispatch = useDispatch();
-	const Loading = useSelector(selectLoading);
-	const Error = useSelector(selectError);
 	const isRefresh = useSelector(selectIsRefresh);
 
 	useEffect(() => {
 		dispatch(refreshUser());
 	}, [dispatch]);
-
 	{
 		return isRefresh ? (
 			<Loader />
 		) : (
 			<>
-				<AuthNav />
 				<Suspense fallback={<Loader />}>
-					<Routes>
-						<Route
-							path="/"
-							element={
-								<RestrictedRoute component={<HomePage />} redirectTo={'/'} />
-							}
-						/>
-						<Route
-							path="/register"
-							element={
-								<RestrictedRoute
-									component={<RegisterPage />}
-									redirectTo={'/contacts'}
-								/>
-							}
-						/>
-						<Route path="/login" element={<LoginPage />} />
-						<Route
-							path="/contacts"
-							element={
-								<PrivateRoute
-									component={<ContactList />}
-									redirectTo={'/login'}
-								/>
-							}
-						/>
-						<Route path="*" />
-					</Routes>
-					{Loading && <Loader />}
-					{Error && <ErrorMessage />}
+					<Layout>
+						<Toaster />
+						<Routes>
+							<Route path="/" element={<HomePage />} />
+							<Route
+								path="/register"
+								element={
+									<RestrictedRoute
+										Component={<RegisterPage />}
+										redirectTo={'/'}
+									/>
+								}
+							/>
+							<Route
+								path="/login"
+								element={
+									<RestrictedRoute Component={<LoginPage />} redirectTo={'/'} />
+								}
+							/>
+							<Route
+								path="/contacts"
+								element={
+									<PrivateRoute
+										Component={<ContactsPage />}
+										redirectTo={'/login'}
+									/>
+								}
+							/>
+							<Route path="*" compo />
+						</Routes>
+					</Layout>
 				</Suspense>
 			</>
 		);
