@@ -1,4 +1,4 @@
-import RegistrationMenu from '../../components/RegistrationMenu/RegistrationMenu';
+import RegistrationMenu from '../../components/RegistrationForm/RegistrationForm';
 
 export default function RegisterPage() {
 	return <RegistrationMenu />;

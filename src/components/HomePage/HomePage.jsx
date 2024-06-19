@@ -1,10 +1,10 @@
-import { selectIsLoggin, selectUser } from '../../redux/auth/selectors';
+import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 export default function HomePage() {
 	const user = useSelector(selectUser);
-	const isLogged = useSelector(selectIsLoggin);
+	const isLogged = useSelector(selectIsLoggedIn);
 	return (
 		<section>
 			{isLogged ? (

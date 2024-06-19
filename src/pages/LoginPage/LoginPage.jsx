@@ -1,4 +1,4 @@
-import LoginMenu from '../../components/LoginMenu/LoginMenu';
+import LoginMenu from '../../components/LoginForm/LoginForm';
 
 export default function LoginPage() {
 	return <LoginMenu />;
